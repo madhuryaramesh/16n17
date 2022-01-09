@@ -6,26 +6,30 @@ namespace _16n17
     {
         static void Main(string[] args)
         {
-            string str1 = "LISTEN";
-            string str2 = "SILENT";
+            int num, i, ctr, low, high;
+            low = 0;
+            high = 10;
 
-            char[] ch1 = str1.ToLower().ToCharArray();
-            char[] ch2 = str2.ToLower().ToCharArray();
+            Console.WriteLine("The Prime numbers between {0} and {1} are: \n", low, high);
 
-            Array.Sort(ch1);
-            Array.Sort(ch2);
-
-            string val1 = new string(ch1);
-            string val2 = new string(ch2);
-
-            if (val1 == val2)
+            for (num = low; num <= high; num++)
             {
-                Console.WriteLine("Anagram-------{0}----{1}", val1, val2);
+                ctr = 0;
+
+                for (i = 2; i <= num / 2; i++)
+                {
+                    if (num % i == 0)
+                    {
+                        ctr++;
+                        break;
+                    }
+                }
+                if (ctr == 0 && num != 1)
+                {
+                    Console.WriteLine("{0}", num);
+                }
             }
-            else
-            {
-                Console.WriteLine("Not Anagram");
-            }
+            Console.WriteLine("\n");
         }
     }
 }
