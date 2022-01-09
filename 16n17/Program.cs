@@ -6,27 +6,26 @@ namespace _16n17
     {
         static void Main(string[] args)
         {
-            int[] arr = { 78, 55, 45, 98, 13 };
-            int temp;
+            string str1 = "LISTEN";
+            string str2 = "SILENT";
 
-            for (int j = 0; j <= arr.Length - 2; j++)
+            char[] ch1 = str1.ToLower().ToCharArray();
+            char[] ch2 = str2.ToLower().ToCharArray();
+
+            Array.Sort(ch1);
+            Array.Sort(ch2);
+
+            string val1 = new string(ch1);
+            string val2 = new string(ch2);
+
+            if (val1 == val2)
             {
-                for (int i = 0; i <= arr.Length - 2; i++)
-                {
-                    if (arr[i] > arr[i + 1])
-                    {
-                        temp = arr[i + 1];
-                        arr[i + 1] = arr[i];
-                        arr[i] = temp;
-                    }
-                }
+                Console.WriteLine("Anagram-------{0}----{1}", val1, val2);
             }
-            Console.WriteLine("sorted");
-            foreach (int p in arr)
+            else
             {
-                Console.WriteLine(p + " ");
+                Console.WriteLine("Not Anagram");
             }
-            Console.Read();
         }
     }
 }
